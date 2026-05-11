@@ -35,13 +35,13 @@ working within an IDE will read files named 'AGENTS.md' and include them in the 
 in which that file resides. For more information about the AGENTS.md files see the [AGENTS GitHub repo](https://github.com/agentsmd/agents.md)
 
 (This I copied from Google, but it seems like a good summary)
-### Key Aspects of AGENTS.md
+#### Key Aspects of AGENTS.md
 * Purpose: Acts as a "system prompt" for AI, containing instructions that the AI cannot infer simply by reading the code.
 * Contents: Typically includes project-specific guidelines like setup commands, testing instructions, coding styles, and dependency management.
 * Precedence: Agents generally look for AGENTS.md at the root directory, but it can also be used in subdirectories for more specific context.
 * Structure: It should be concise and organized, generally targeting 150 lines or fewer to maintain high AI performance.
 
-### Best Practices
+#### Best Practices
 * Be Specific: Include actionable, unique instructions that AI cannot easily discover on its own.
 * Use Markdown: Use clear headings and code blocks (```) to make it easy for agents to parse and copy commands.
 * Maintain it: Update the file as your project's technology stack or coding guidelines change.
@@ -49,7 +49,29 @@ in which that file resides. For more information about the AGENTS.md files see t
 You can use the AGENTS.md file to establish guardrails for AI tools For example, you can instruct the agents to always 
 document their reasoning unless told otherwise, to always save plans to a specific directory, et cetera.
 
-See the annotated AGENTS.md file for more information.
+See the [AGENTS.md](AGENTS.md) file for an example.
+
+### Skills
+
+Skills are markdown documents, scripts and other information that are added to a prompt - they become part of the request context - 
+when a prompt includes a trigger phrase for the skill or if the skill is explicitly referenced.
+
+For an example skill, see [the OPeNDAP skill written by Ed Hartnett](skills/opendap).
+
+More info TBD
+
+### Prompts
+
+The prompt given to the AI tool should be concise. But, if you want a particular kind of output and some aspect ot the 
+context does not include that, be sure the prompt does. One way is to include one or more examples of the kind of output
+you want. Suppose you want CppUnit-based unit tests - say so and include an example that uses the templated main() function
+we use with most of our C++ code.
+
+The context of the prompt is described in [LLMs and Context](LLMs-and-Context.md) but one thing that is not covered in that
+document is that every new 'chat' (i.e., session) has no knowledge of previous sessions. Tha context that is common to
+a series of sessions is the AGENTS.md documents, the contents of repo, we documents that are referenced by AGENTS.md, skills,
+and any thing in 'Memory.' Memory, see [LLMs and Context](LLMs-and-Context.md), is information that is explicitly carried 
+over from session to session. 
 
 ## The Deep Dive
 
