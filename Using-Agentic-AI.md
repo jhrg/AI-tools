@@ -101,6 +101,11 @@ NcML deep dive and over all the result is very useful.
 
 Later section will describe how to use these tools to edit code and update existing documentation to match the edits.
 
+Don't skip over this. The output of a correctly done deep dive is a markdown document and that, in turn can be used by
+the AI tools to direct other behaviors. The next topic, _Problem Analysis_ can directly benefit from the Deep Dive
+document.
+
+
 ## Problem Analysis
 
 ### Investigating Specific issues
